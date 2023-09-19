@@ -1,4 +1,4 @@
-module buffer
+module buffer_tmp
 #(parameter DATA_WIDTH, parameter DEPTH, parameter POP_ORDER = "FIFO")
 (
     input logic clk, rst_n, push_en, push, pop_en, pop,
