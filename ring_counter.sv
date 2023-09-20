@@ -3,10 +3,10 @@ module ring_counter
 (
     input logic clk, rst_n,
     input logic inc, dec,
-    output logic [$clog2(WIDTH) : 0] count
+    output logic [$clog2(WIDTH) - 1 : 0] count
 );
 
-logic [$clog2(WIDTH) : 0] count_next;
+logic [$clog2(WIDTH) - 1 : 0] count_next;
 
 always_comb begin
     case({inc, dec})
