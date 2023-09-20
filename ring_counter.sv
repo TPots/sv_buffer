@@ -1,9 +1,9 @@
 module ring_counter
 #(parameter WIDTH)
 (
-    input clk, rst_n,
-    input inc, dec,
-    output [$clog2(WIDTH) : 0] count
+    input logic clk, rst_n,
+    input logic inc, dec,
+    output logic [$clog2(WIDTH) : 0] count
 );
 
 logic [$clog2(WIDTH) : 0] count_next;
@@ -38,20 +38,27 @@ endmodule
 module ring_counter_tb();
 
 localparam WIDTH = 8;
-inc pc;
+int pc;
 bit switch;
 
 logic clk, rst_n;
 logic inc, dec;
 logic [$clog2(WIDTH) : 0] count;
 
-
+ring_counter #(.WIDTH(WIDTH)) DUT (
+    .clk(clk),
+    .rst_n(rst_n),
+    .inc(inc),
+    .dec(dec),
+    .count(count)
+);
 
 initial begin
     clk <= '0;
     rst_n <= '1;
-    swtich <= '0;
+    switch <= '0;
     #1;
+    rst_n <= '0;
     forever begin
         clk <= ~clk;
         #1;

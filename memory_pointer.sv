@@ -45,3 +45,17 @@ generate
 endgenerate
 
 endmodule
+
+module memory_pointer_tb();
+    localparam DATA_WIDTH = 8;
+    localparam WIDTH = 8;
+    localparam POP_ORDER = "FIFO";
+
+    int pc;
+    bit switch;
+
+    logic clk, rst_n;
+    logic push, pop;
+    logic [$clog2(WIDTH) : 0] read_pointer, write_pointer;
+
+endmodule
